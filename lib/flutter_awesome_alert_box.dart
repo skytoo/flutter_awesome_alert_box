@@ -70,11 +70,10 @@ class SimpleAlertBox {
                 children: <Widget>[
                   FlatButton(
                     color: buttonColor ?? Colors.blue,
-                    onPressed: this.onPressed != null
-                        ? this.onPressed
-                        : () {
-                            Navigator.of(context).pop();
-                          },
+                    onPressed: this.onPressed ??
+                        () {
+                          Navigator.of(context).pop();
+                        },
                     child: Text(
                       buttonText ?? "Close",
                       style: TextStyle(color: buttonTextColor ?? Colors.white),
@@ -160,11 +159,10 @@ class InfoAlertBox {
                 children: <Widget>[
                   FlatButton(
                     color: buttonColor ?? Colors.blue,
-                    onPressed: this.onPressed != null
-                        ? this.onPressed
-                        : () {
-                            Navigator.of(context).pop();
-                          },
+                    onPressed: this.onPressed ??
+                        () {
+                          Navigator.of(context).pop();
+                        },
                     child: Text(
                       buttonText ?? "Close",
                       style: TextStyle(color: buttonTextColor ?? Colors.white),
@@ -250,11 +248,10 @@ class SuccessAlertBox {
                 children: <Widget>[
                   FlatButton(
                     color: buttonColor ?? Color(0xFF4CB051),
-                    onPressed: this.onPressed != null
-                        ? this.onPressed
-                        : () {
-                            Navigator.of(context).pop();
-                          },
+                    onPressed: this.onPressed ??
+                        () {
+                          Navigator.of(context).pop();
+                        },
                     child: Text(
                       buttonText ?? "Close",
                       style: TextStyle(color: buttonTextColor ?? Colors.white),
@@ -340,11 +337,10 @@ class DangerAlertBox {
                 children: <Widget>[
                   FlatButton(
                     color: buttonColor ?? Color(0xFFFF5455),
-                    onPressed: this.onPressed != null
-                        ? this.onPressed
-                        : () {
-                            Navigator.of(context).pop();
-                          },
+                    onPressed: this.onPressed ??
+                        () {
+                          Navigator.of(context).pop();
+                        },
                     child: Text(
                       buttonText ?? "Close",
                       style: TextStyle(color: buttonTextColor ?? Colors.white),
@@ -430,11 +426,10 @@ class WarningAlertBox {
                 children: <Widget>[
                   FlatButton(
                     color: buttonColor ?? Color(0xFFFF9800),
-                    onPressed: this.onPressed != null
-                        ? this.onPressed
-                        : () {
-                            Navigator.of(context).pop();
-                          },
+                    onPressed: this.onPressed ??
+                        () {
+                          Navigator.of(context).pop();
+                        },
                     child: Text(
                       buttonText ?? "Close",
                       style: TextStyle(color: buttonTextColor ?? Colors.white),
@@ -523,11 +518,10 @@ class DarkAlertBox {
                 children: <Widget>[
                   FlatButton(
                     color: buttonColor ?? Color(0xFF4E4E4E),
-                    onPressed: this.onPressed != null
-                        ? this.onPressed
-                        : () {
-                            Navigator.of(context).pop();
-                          },
+                    onPressed: this.onPressed ??
+                        () {
+                          Navigator.of(context).pop();
+                        },
                     child: Text(
                       buttonText ?? "Close",
                       style: TextStyle(color: buttonTextColor ?? Colors.white),
@@ -565,6 +559,7 @@ class SimpleAlertBoxCenter {
   final Color buttonColor;
   final Color buttonTextColor;
   final String buttonText;
+  final VoidCallback onPressed;
   SimpleAlertBoxCenter(
       {this.context,
       this.title,
@@ -574,7 +569,8 @@ class SimpleAlertBoxCenter {
       this.buttonColor,
       this.buttonText,
       this.buttonTextColor,
-      this.icon}) {
+      this.icon,
+      this.onPressed}) {
     showDialog(
         barrierDismissible: false,
         context: context,
@@ -602,9 +598,10 @@ class SimpleAlertBoxCenter {
                 children: <Widget>[
                   FlatButton(
                     color: buttonColor ?? Colors.blue,
-                    onPressed: () {
-                      Navigator.of(context).pop();
-                    },
+                    onPressed: this.onPressed ??
+                        () {
+                          Navigator.of(context).pop();
+                        },
                     child: Text(
                       buttonText ?? "Close",
                       style: TextStyle(color: buttonTextColor ?? Colors.white),
@@ -642,6 +639,7 @@ class InfoAlertBoxCenter {
   final Color buttonColor;
   final Color buttonTextColor;
   final String buttonText;
+  final VoidCallback onPressed;
   InfoAlertBoxCenter(
       {this.context,
       this.title,
@@ -651,7 +649,8 @@ class InfoAlertBoxCenter {
       this.buttonColor,
       this.buttonText,
       this.buttonTextColor,
-      this.icon}) {
+      this.icon,
+      this.onPressed}) {
     showDialog(
         barrierDismissible: false,
         context: context,
@@ -680,9 +679,10 @@ class InfoAlertBoxCenter {
                 children: <Widget>[
                   FlatButton(
                     color: buttonColor ?? Colors.blue,
-                    onPressed: () {
-                      Navigator.of(context).pop();
-                    },
+                    onPressed: this.onPressed ??
+                        () {
+                          Navigator.of(context).pop();
+                        },
                     child: Text(
                       buttonText ?? "Close",
                       style: TextStyle(color: buttonTextColor ?? Colors.white),
@@ -719,6 +719,7 @@ class SuccessAlertBoxCenter {
   final Color buttonColor;
   final Color buttonTextColor;
   final String buttonText;
+  final VoidCallback onPressed;
   SuccessAlertBoxCenter(
       {this.context,
       this.messageText,
@@ -727,7 +728,8 @@ class SuccessAlertBoxCenter {
       this.buttonColor,
       this.buttonText,
       this.buttonTextColor,
-      this.icon}) {
+      this.icon,
+      this.onPressed}) {
     showDialog(
         barrierDismissible: false,
         context: context,
@@ -757,9 +759,10 @@ class SuccessAlertBoxCenter {
                 children: <Widget>[
                   FlatButton(
                     color: buttonColor ?? Color(0xFF4CB051),
-                    onPressed: () {
-                      Navigator.of(context).pop();
-                    },
+                    onPressed: this.onPressed ??
+                        () {
+                          Navigator.of(context).pop();
+                        },
                     child: Text(
                       buttonText ?? "Close",
                       style: TextStyle(color: buttonTextColor ?? Colors.white),
@@ -785,6 +788,7 @@ class DangerAlertBoxCenter {
   final Color buttonColor;
   final Color buttonTextColor;
   final String buttonText;
+  final VoidCallback onPressed;
   DangerAlertBoxCenter(
       {this.context,
       this.messageText,
@@ -793,7 +797,8 @@ class DangerAlertBoxCenter {
       this.buttonColor,
       this.buttonText,
       this.buttonTextColor,
-      this.icon}) {
+      this.icon,
+      this.onPressed}) {
     showDialog(
         barrierDismissible: false,
         context: context,
@@ -823,9 +828,10 @@ class DangerAlertBoxCenter {
                 children: <Widget>[
                   FlatButton(
                     color: buttonColor ?? Color(0xFFFF5455),
-                    onPressed: () {
-                      Navigator.of(context).pop();
-                    },
+                    onPressed: this.onPressed ??
+                        () {
+                          Navigator.of(context).pop();
+                        },
                     child: Text(
                       buttonText ?? "Close",
                       style: TextStyle(color: buttonTextColor ?? Colors.white),
@@ -862,6 +868,7 @@ class WarningAlertBoxCenter {
   final Color buttonColor;
   final Color buttonTextColor;
   final String buttonText;
+  final VoidCallback onPressed;
   WarningAlertBoxCenter(
       {this.context,
       this.messageText,
@@ -870,7 +877,8 @@ class WarningAlertBoxCenter {
       this.buttonColor,
       this.buttonText,
       this.buttonTextColor,
-      this.icon}) {
+      this.icon,
+      this.onPressed}) {
     showDialog(
         barrierDismissible: false,
         context: context,
@@ -900,9 +908,10 @@ class WarningAlertBoxCenter {
                 children: <Widget>[
                   FlatButton(
                     color: buttonColor ?? Color(0xFFFF9800),
-                    onPressed: () {
-                      Navigator.of(context).pop();
-                    },
+                    onPressed: this.onPressed ??
+                        () {
+                          Navigator.of(context).pop();
+                        },
                     child: Text(
                       buttonText ?? "Close",
                       style: TextStyle(color: buttonTextColor ?? Colors.white),
@@ -939,6 +948,7 @@ class DarkAlertBoxCenter {
   final Color buttonColor;
   final Color buttonTextColor;
   final String buttonText;
+  final VoidCallback onPressed;
   DarkAlertBoxCenter(
       {this.context,
       this.messageText,
@@ -947,7 +957,8 @@ class DarkAlertBoxCenter {
       this.buttonColor,
       this.buttonText,
       this.buttonTextColor,
-      this.icon}) {
+      this.icon,
+      this.onPressed}) {
     showDialog(
         barrierDismissible: false,
         context: context,
@@ -978,9 +989,10 @@ class DarkAlertBoxCenter {
                 children: <Widget>[
                   FlatButton(
                     color: buttonColor ?? Color(0xFF4E4E4E),
-                    onPressed: () {
-                      Navigator.of(context).pop();
-                    },
+                    onPressed: this.onPressed ??
+                        () {
+                          Navigator.of(context).pop();
+                        },
                     child: Text(
                       buttonText ?? "Close",
                       style: TextStyle(color: buttonTextColor ?? Colors.white),
@@ -1362,6 +1374,7 @@ class SuccessBgAlertBox {
   final Color buttonColor;
   final Color buttonTextColor;
   final String buttonText;
+  final VoidCallback onPressed;
   SuccessBgAlertBox(
       {this.context,
       this.title,
@@ -1371,7 +1384,8 @@ class SuccessBgAlertBox {
       this.buttonColor,
       this.buttonText,
       this.buttonTextColor,
-      this.icon}) {
+      this.icon,
+      this.onPressed}) {
     showDialog(
         barrierDismissible: false,
         context: context,
@@ -1411,9 +1425,10 @@ class SuccessBgAlertBox {
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.all(Radius.circular(9.0))),
                   color: buttonColor ?? Colors.white,
-                  onPressed: () {
-                    Navigator.of(context).pop();
-                  },
+                  onPressed: this.onPressed ??
+                      () {
+                        Navigator.of(context).pop();
+                      },
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
@@ -1455,6 +1470,7 @@ class DangerBgAlertBox {
   final Color buttonColor;
   final Color buttonTextColor;
   final String buttonText;
+  final VoidCallback onPressed;
   DangerBgAlertBox(
       {this.context,
       this.title,
@@ -1464,7 +1480,8 @@ class DangerBgAlertBox {
       this.buttonColor,
       this.buttonText,
       this.buttonTextColor,
-      this.icon}) {
+      this.icon,
+      this.onPressed}) {
     showDialog(
         barrierDismissible: false,
         context: context,
@@ -1504,9 +1521,10 @@ class DangerBgAlertBox {
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.all(Radius.circular(9.0))),
                   color: buttonColor ?? Colors.white,
-                  onPressed: () {
-                    Navigator.of(context).pop();
-                  },
+                  onPressed: this.onPressed ??
+                      () {
+                        Navigator.of(context).pop();
+                      },
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
@@ -1547,6 +1565,7 @@ class WarningBgAlertBox {
   final Color buttonColor;
   final Color buttonTextColor;
   final String buttonText;
+  final VoidCallback onPressed;
   WarningBgAlertBox(
       {this.context,
       this.title,
@@ -1556,7 +1575,8 @@ class WarningBgAlertBox {
       this.buttonColor,
       this.buttonText,
       this.buttonTextColor,
-      this.icon}) {
+      this.icon,
+      this.onPressed}) {
     showDialog(
         barrierDismissible: false,
         context: context,
@@ -1596,9 +1616,10 @@ class WarningBgAlertBox {
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.all(Radius.circular(9.0))),
                   color: buttonColor ?? Colors.white,
-                  onPressed: () {
-                    Navigator.of(context).pop();
-                  },
+                  onPressed: this.onPressed ??
+                      () {
+                        Navigator.of(context).pop();
+                      },
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
@@ -1640,6 +1661,7 @@ class InfoBgAlertBox {
   final Color buttonColor;
   final Color buttonTextColor;
   final String buttonText;
+  final VoidCallback onPressed;
   InfoBgAlertBox(
       {this.context,
       this.title,
@@ -1649,7 +1671,8 @@ class InfoBgAlertBox {
       this.buttonColor,
       this.buttonText,
       this.buttonTextColor,
-      this.icon}) {
+      this.icon,
+      this.onPressed}) {
     showDialog(
         barrierDismissible: false,
         context: context,
@@ -1689,9 +1712,10 @@ class InfoBgAlertBox {
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.all(Radius.circular(9.0))),
                   color: buttonColor ?? Colors.white,
-                  onPressed: () {
-                    Navigator.of(context).pop();
-                  },
+                  onPressed: this.onPressed ??
+                      () {
+                        Navigator.of(context).pop();
+                      },
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
@@ -1733,6 +1757,7 @@ class DarkBgAlertBox {
   final Color buttonColor;
   final Color buttonTextColor;
   final String buttonText;
+  final VoidCallback onPressed;
   DarkBgAlertBox(
       {this.context,
       this.title,
@@ -1742,7 +1767,8 @@ class DarkBgAlertBox {
       this.buttonColor,
       this.buttonText,
       this.buttonTextColor,
-      this.icon}) {
+      this.icon,
+      this.onPressed}) {
     showDialog(
         barrierDismissible: false,
         context: context,
@@ -1783,9 +1809,10 @@ class DarkBgAlertBox {
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.all(Radius.circular(9.0))),
                   color: buttonColor ?? Color(0xFF4E4E4E),
-                  onPressed: () {
-                    Navigator.of(context).pop();
-                  },
+                  onPressed: this.onPressed ??
+                      () {
+                        Navigator.of(context).pop();
+                      },
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
@@ -1827,6 +1854,7 @@ class SimpleBgAlertBox {
   final Color buttonColor;
   final Color buttonTextColor;
   final String buttonText;
+  final VoidCallback onPressed;
   SimpleBgAlertBox(
       {this.context,
       this.title,
@@ -1836,7 +1864,8 @@ class SimpleBgAlertBox {
       this.buttonColor,
       this.buttonText,
       this.buttonTextColor,
-      this.icon}) {
+      this.icon,
+      this.onPressed}) {
     showDialog(
         barrierDismissible: false,
         context: context,
@@ -1922,6 +1951,7 @@ class CustomBgAlertBox {
   final Color buttonTextColor;
   final Color bgColor;
   final String buttonText;
+  final VoidCallback onPressed;
   CustomBgAlertBox(
       {this.context,
       this.title,
@@ -1932,7 +1962,8 @@ class CustomBgAlertBox {
       this.buttonText,
       this.buttonTextColor,
       this.bgColor,
-      this.icon}) {
+      this.icon,
+      this.onPressed}) {
     showDialog(
         barrierDismissible: false,
         context: context,
